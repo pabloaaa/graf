@@ -27,8 +27,8 @@ public class MatrixGraph implements AbstractGraph {
         graph[c.getB().getNr()][c.getA().getNr()] = -1;
     }
     @Override
-    public ArrayList<Conection> getConections(Vertex uno){
-        ArrayList<Conection> tmp = new ArrayList<Conection>();
+    public HashSet<Conection> getConections(Vertex uno){
+        HashSet<Conection> tmp = new HashSet<>();
         for(int i = 0 ; i < graph.length; ++i){
             if(graph[uno.getNr()][i] != -1){
                 Conection con = new Conection(new Vertex(uno.getNr()),new Vertex(i), graph[uno.getNr()][i]);
