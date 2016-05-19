@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.util.Set;
 
-/**
- * Created by user on 4/28/16.
- */
+
 public class GraphSaver {
     AbstractGraph g;
     GraphSaver(AbstractGraph graph){

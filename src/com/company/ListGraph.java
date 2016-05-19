@@ -91,4 +91,21 @@ public class ListGraph implements AbstractGraph {
         }
         return all_connections;
     }
+
+    @Override
+    public int vertexNr(){
+        Set<Vertex> keys = graph.keySet();
+        return keys.size();
+    }
+
+
+
+
 }
+
+
+
+
+
+
+

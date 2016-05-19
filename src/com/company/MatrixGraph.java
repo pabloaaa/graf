@@ -40,6 +40,11 @@ public class MatrixGraph implements AbstractGraph {
     }
 
     @Override
+    public int getDistance(Vertex uno, Vertex dos){
+        return graph[uno.getNr()][dos.getNr()];
+    }
+
+    @Override
     public HashSet<Conection> getAllConections() {
         HashSet<Conection> c = new HashSet<>();
         for(int i = 0 ; i < size; ++i){
@@ -54,7 +59,7 @@ public class MatrixGraph implements AbstractGraph {
     }
 
     @Override
-    public int getDistance(Vertex uno, Vertex dos){
-        return graph[uno.getNr()][dos.getNr()];
+    public int vertexNr(){
+        return size;
     }
 }

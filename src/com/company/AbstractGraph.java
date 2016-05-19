@@ -8,4 +8,5 @@ public interface AbstractGraph {
     public HashSet<Conection> getConections(Vertex uno);
     public HashSet<Conection> getAllConections();
     public void removeConection(Conection conection);
+    public int vertexNr();
 }

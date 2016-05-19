@@ -2,7 +2,7 @@ package com.company;
 
 import java.net.ConnectException;
 
-public class Conection {
+public class Conection implements Comparable<Conection> {
     private Vertex A;
     private Vertex B;
     private int length;
@@ -44,5 +44,11 @@ public class Conection {
         return String.valueOf(getA().getNr()) + " " +
                 String.valueOf(getB().getNr()) + " " +
                 String.valueOf(getLength());
+    }
+
+
+    @Override
+    public int compareTo(Conection conection) {
+        return getLength() - conection.getLength();
     }
 }
