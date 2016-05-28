@@ -13,12 +13,14 @@ public class Main {
 //        AbstractGraph graph = new MatrixGraph(5);
         AbstractGraph graph = new ListGraph();
         Algorithm alg = new PrimeAlg();
+        HashSet<Conection> Tree;
 
         GraphReader reader = new GraphReader(graph);
         graph = reader.loadFromFile("/home/user/loader");
 
-        System.out.println(graph.vertexNr());
-        alg.solveAlg(graph);
+        Tree = alg.solveAlg(graph);
+        System.out.println(Tree.toString());
+
 
 
         GraphSaver saver = new GraphSaver(graph);

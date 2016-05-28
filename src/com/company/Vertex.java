@@ -24,6 +24,6 @@ public class Vertex {
 
     @Override
     public String toString() {
-        return "VERTEX(" + getNr() + ")";
+        return "(" + getNr() + ")";
     }
 }

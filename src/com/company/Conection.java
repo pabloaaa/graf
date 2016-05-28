@@ -41,8 +41,9 @@ public class Conection implements Comparable<Conection> {
 
     @Override
     public String toString() {
-        return String.valueOf(getA().getNr()) + " " +
-                String.valueOf(getB().getNr()) + " " +
+        return String.valueOf(getA()) + "-" +
+                String.valueOf(getB()) + " " +
+                " => " +
                 String.valueOf(getLength());
     }
 
