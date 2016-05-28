@@ -16,11 +16,11 @@ public class PrimeAlg implements Algorithm {
     }
 
     @Override
-    public boolean isLooping(Conection c){
+    public boolean isCycle(Conection c){
         int score = 0;
 
         if(visited.size()<2){
-            return true;
+            return false;
         }
 
         for(Vertex x : visited) {
@@ -30,9 +30,9 @@ public class PrimeAlg implements Algorithm {
         }
 
         if (score == 2){
-            return false;
-        }else{
             return true;
+        }else{
+            return false;
         }
     }
 

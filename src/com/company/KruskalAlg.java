@@ -1,7 +1,10 @@
 package com.company;
 
 
+import java.net.ConnectException;
 import java.util.*;
+
+import static java.util.Collections.min;
 
 
 public class KruskalAlg implements Algorithm{
@@ -14,7 +17,7 @@ public class KruskalAlg implements Algorithm{
     }
 
     @Override
-    public boolean isLooping(Conection c){
+    public boolean isCycle(Conection c){
         int score = 0;
 
         for(Vertex x : visited) {
@@ -26,37 +29,33 @@ public class KruskalAlg implements Algorithm{
             }
         }
         if(visited.size()<2){
-            return true;
+            return false;
         }
         if(score == 2){
-            return false;
-        }else{
             return true;
+        }else{
+            return false;
         }
     }
 
     @Override
     public HashSet<Conection> solveAlg(AbstractGraph graph) {
         HashSet<Conection> temp = graph.getAllConections();
-        List<Conection> myTree = new ArrayList<Conection>(temp);
-        Collections.sort(myTree);
-
-        for(Conection c : myTree){
-            if(minTree.isEmpty()){
-                minTree.add(c);
-                visited.add(c.getA());
-                visited.add(c.getB());
-            }else{
-                for (Vertex v : visited) {
-                    if (    c.getA() == v && isLooping(c) ||
-                            c.getB() == v && isLooping(c) ||
-                            c.getA() != v && c.getB() != v && isLooping(c)) {
-                        minTree.add(c);
-                    }
+        Conection min_connection = min(temp);
+        minTree.add(min_connection);
+        visited.add(min_connection.getA());
+        visited.add(min_connection.getB());
+        while(visited.size() < graph.vertexNr()) {
+            HashSet<Conection> not_known_connections = new HashSet<>();
+            for (Conection c : temp) {
+                if (!(minTree.contains(c) || isCycle(c))) {
+                    not_known_connections.add(c);
                 }
-                visited.add(c.getA());
-                visited.add(c.getB());
             }
+            Conection min_conn = min(not_known_connections);
+            minTree.add(min_conn);
+            visited.add(min_conn.getA());
+            visited.add(min_conn.getB());
         }
         return minTree;
     }

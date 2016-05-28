@@ -10,9 +10,10 @@ import java.util.HashSet;
 public class Main {
 
     public static void main(String[] args) {
-//        AbstractGraph graph = new MatrixGraph(5);
-        AbstractGraph graph = new ListGraph();
-        Algorithm alg = new PrimeAlg();
+        AbstractGraph graph = new MatrixGraph(5);
+//        AbstractGraph graph = new ListGraph();
+//        Algorithm alg = new PrimeAlg();
+        Algorithm alg = new KruskalAlg();
         HashSet<Conection> Tree;
 
         GraphReader reader = new GraphReader(graph);

@@ -12,7 +12,7 @@ public class DijkstryAlg implements Algorithm{
     }
 
     @Override
-    public boolean isLooping(Conection c) {
+    public boolean isCycle(Conection c) {
         return false;
     }
 
