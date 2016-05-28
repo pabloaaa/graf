@@ -1,23 +1,19 @@
 package com.company;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-
-import java.net.ConnectException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 
 public class Main {
 
     public static void main(String[] args) {
-        AbstractGraph graph = new MatrixGraph(5);
+//        AbstractGraph graph = new MatrixGraph(5);
 //        AbstractGraph graph = new ListGraph();
-//        Algorithm alg = new PrimeAlg();
+        AbstractGraph graph = new GraphGenerator().generateMatrixGraph(10, 25);
         Algorithm alg = new KruskalAlg();
+//        Algorithm alg = new PrimeAlg();
         HashSet<Conection> Tree;
 
-        GraphReader reader = new GraphReader(graph);
-        graph = reader.loadFromFile("/home/user/loader");
+//        GraphReader reader = new GraphReader(graph);
+//        graph = reader.loadFromFile("/home/user/loader");
 
         Tree = alg.solveAlg(graph);
         System.out.println(Tree.toString());

@@ -43,16 +43,16 @@ public class PrimeAlg implements Algorithm {
 
         while(visited.size() != graph.vertexNr()) {
             Conection min_connection = null;
+            HashSet<Conection> not_know_connections = new HashSet<>();
             for (Vertex v : visited) {
                 HashSet<Conection> conn_from_current_vertex = graph.getConections(v);
-                HashSet<Conection> not_know_connections = new HashSet<>();
                 for (Conection c : conn_from_current_vertex) {
                     if (!minTree.contains(c)) {
                         not_know_connections.add(c);
                     }
                 }
-                min_connection = min(not_know_connections);
             }
+            min_connection = min(not_know_connections);
             assert min_connection != null;
             add_to_min_tree(min_connection);
             visited.add(min_connection.getB());
