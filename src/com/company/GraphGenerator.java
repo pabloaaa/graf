@@ -2,11 +2,9 @@ package com.company;
 
 import java.util.Random;
 
-/**
- * Created by user on 5/28/16.
- */
+
 public class GraphGenerator {
-    Random r =  new Random(10);
+    Random r =  new Random();
     public AbstractGraph generateListGraph(int vertex_nr, int density){
         AbstractGraph g =  generateMatrixGraph(vertex_nr,density);
         AbstractGraph final_graph = new ListGraph();

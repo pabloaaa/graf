@@ -46,6 +46,7 @@ public class KruskalAlg implements Algorithm{
         visited.add(min_connection.getA());
         visited.add(min_connection.getB());
         while(visited.size() < graph.vertexNr()) {
+            System.out.println(String.format("%d/%d",visited.size(), graph.vertexNr()));
             HashSet<Conection> not_known_connections = new HashSet<>();
             for (Conection c : temp) {
                 if (!(minTree.contains(c) || isCycle(c))) {

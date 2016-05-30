@@ -42,6 +42,7 @@ public class PrimeAlg implements Algorithm {
         add_to_min_tree(min(temp));
 
         while(visited.size() != graph.vertexNr()) {
+            System.out.println(String.format("%d/%d",visited.size(), graph.vertexNr()));
             Conection min_connection = null;
             HashSet<Conection> not_know_connections = new HashSet<>();
             for (Vertex v : visited) {
